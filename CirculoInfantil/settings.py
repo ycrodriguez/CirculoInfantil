@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
+from os.path import join
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -28,13 +28,13 @@ ALLOWED_HOSTS = []
 
 JAZZMIN_SETTINGS = {
     # title of the window (Will default to current_admin_site.site_title if absent or None)
-    "site_title": "Circulo Infantil",
+    "site_title": "Circulo Infantil Hermanos Vena",
 
     # Title on the login screen (19 chars max) (defaults to current_admin_site.site_header if absent or None)
-    "site_header": "Circulo Infantil",
+    "site_header": "Circulo Infantil Hermanos Vena",
 
     # Title on the brand (19 chars max) (defaults to current_admin_site.site_header if absent or None)
-    "site_brand": "Circulo Infantil",
+    "site_brand": "Circulo Infantil Hermanos Vena",
 
     # Logo to use for your site, must be present in static files, used for brand on top left
     "site_logo": None,
@@ -52,7 +52,7 @@ JAZZMIN_SETTINGS = {
     "site_icon": None,
 
     # Welcome text on the login screen
-    "welcome_sign": "Welcome",
+    "welcome_sign": "Bienvenido",
 
     # Copyright on the footer
     "copyright": "Yohan Dev",
@@ -68,13 +68,13 @@ JAZZMIN_UI_TWEAKS = {
     "brand_small_text": False,
     "brand_colour": False,
     "accent": "accent-primary",
-    "navbar": "navbar-light",
+    "navbar": "navbar-white navbar-light",
     "no_navbar_border": False,
     "navbar_fixed": False,
     "layout_boxed": False,
     "footer_fixed": True,
     "sidebar_fixed": True,
-    "sidebar": "sidebar-light-primary",
+    "sidebar": "sidebar-dark-primary",
     "sidebar_nav_small_text": False,
     "sidebar_disable_expand": False,
     "sidebar_nav_child_indent": False,
@@ -91,7 +91,7 @@ JAZZMIN_UI_TWEAKS = {
         "danger": "btn-danger",
         "success": "btn-success"
     },
-    "actions_sticky_top": True
+    "actions_sticky_top": False
 }
 # Application definition
 INSTALLED_APPS = [
@@ -166,7 +166,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-es'
 
 TIME_ZONE = 'UTC'
 
