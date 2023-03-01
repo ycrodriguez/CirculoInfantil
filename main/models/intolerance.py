@@ -12,4 +12,4 @@ class Intolerance(models.Model):
         verbose_name_plural = 'Intolerancias'
 
     def __str__(self):
-        return self.name_intolerance
+        return self.name_intolerance    

@@ -12,4 +12,4 @@ class Expedient(models.Model):
         verbose_name_plural = 'Expedientes'
 
     def __str__(self):
-        return 'Expediente' + self.code_expedient
+        return self.code_expedient
