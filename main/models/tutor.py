@@ -16,6 +16,17 @@ class Tutor(models.Model):
     phone = models.CharField('Teléfono', max_length=16)
     child = models.ManyToManyField(Child, verbose_name='Niño')
 
+    @property
+    def chequera(self):
+        childs = self.child.all()
+        if childs.count() == 2:
+            return 30
+        if childs.count() >= 3:
+            return 20
+        return 40
+
+    chequera.fget.short_description = 'Chequera a pagar'
+
     class Meta:
         verbose_name = 'Tutor'
         verbose_name_plural = 'Tutores'

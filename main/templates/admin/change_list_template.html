@@ -1,0 +1,25 @@
+{% extends "admin/change_list.html" %}
+{% load i18n static admin_list %}
+{% load admin_urls %}
+
+{% block extrastyle %}
+    {{ block.super }}
+{% endblock %}
+
+{% block extrahead %}
+    {{ block.super }}
+    {{ media.js }}
+    {% if action_form %}{% if actions_on_top or actions_on_bottom %}
+        <script type="text/javascript">
+            (function ($) {
+                $(document).ready(function ($) {
+                    $("tr input.action-select").actions();
+                });
+            })(django.jQuery);
+        </script>
+    {% endif %}{% endif %}
+{% endblock %}
+
+{% block content %}
+    {{ block.super }}
+{% endblock %}

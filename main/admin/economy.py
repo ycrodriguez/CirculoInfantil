@@ -5,4 +5,4 @@ from main.models import *
 @admin.register(Economy)
 class EconomyAdmin(admin.ModelAdmin):
     search_fields = ['tutor']
-    list_display = ['tutor']
+    list_display = ['tutor', 'num_chid', 'members']

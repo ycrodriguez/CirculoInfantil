@@ -4,5 +4,5 @@ from main.models import *
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-    search_fields = ['value']
-    list_display = ['value']
+    search_fields = ['name_article']
+    list_display = ['name_article', 'description_article', 'value', 'room']

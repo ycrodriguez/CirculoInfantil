@@ -1,0 +1,50 @@
+{% load static %}
+
+{% block page_title %}
+
+{% endblock %}
+
+
+
+{% block page_header %}
+    <h1 style="text-align: center">Inventario segun salon</h1>
+{% endblock %}
+
+
+{% block content %}
+    <table border="1">
+        <thead>
+        <tr>
+            <td colspan="2">{{ room }}</td>
+        </tr>
+        <tr>
+            <td>Nombre del articulo</td>
+            <td>Valor</td>
+        </tr>
+        </thead>
+        <tbody>
+        {% if articulos %}
+            {% for i in articulos %}
+                <tr>
+                    <td>{{ i.name_article }}</td>
+                    <td>{{ i.value }}</td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="2"> No existen articulos en este salon</td>
+            </tr>
+        {% endif %}
+        </tbody>
+    </table>
+    <style type="text/css">
+        thead tr td {
+            font-weight: bold;
+        }
+
+        td {
+            text-align: center;
+            padding: 3px;
+        }
+    </style>
+{% endblock %}
