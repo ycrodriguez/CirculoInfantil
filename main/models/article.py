@@ -14,4 +14,4 @@ class Article(models.Model):
         verbose_name_plural = 'Artículos'
 
     def __str__(self):
-        return "Artículo " + str(self.pk)
+        return self.name_article

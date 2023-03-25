@@ -1,4 +1,5 @@
 from django.db import models
+
 from main.models.room import Room
 from main.models.disease import Disease
 from main.models.family_pickup import FamilyPickup
@@ -27,6 +28,7 @@ class Child(models.Model):
     diseases = models.ManyToManyField(Disease, verbose_name='Enfermedades', blank=True)
     family_pickup = models.ManyToManyField(FamilyPickup, verbose_name='Familiar de recogida')
     intolerance = models.ManyToManyField(Intolerance, verbose_name='Intolerancias', blank=True)
+    tutor = models.ManyToManyField('main.Tutor', verbose_name='Tutor')
 
     class Meta:
         verbose_name = 'Niño'

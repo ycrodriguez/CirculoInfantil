@@ -6,7 +6,7 @@ from main.models.child import Child
 # Modelo Economia, datos economicos
 class Economy(models.Model):
     tutor = models.OneToOneField(Tutor, on_delete=models.CASCADE)
-    members = models.IntegerField('Número de miembros del nucleo familiar')  # Numero de miembros del nucleo familiar
+    members = models.IntegerField('Número de miembros del ncleo familiar')  # Numero de miembros del nucleo familiar
 
     @property
     def num_chid(self):

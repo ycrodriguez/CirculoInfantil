@@ -1,5 +1,4 @@
 from django.db import models
-from main.models.child import Child
 
 
 # Modelo Tutor
@@ -14,18 +13,6 @@ class Tutor(models.Model):
     civil_status = models.CharField('Estado civil', max_length=8)  # Estado Civil
     other_income = models.IntegerField('Otros ingresos')  # Otros Ingresos
     phone = models.CharField('Teléfono', max_length=16)
-    child = models.ManyToManyField(Child, verbose_name='Niño')
-
-    @property
-    def chequera(self):
-        childs = self.child.all()
-        if childs.count() == 2:
-            return 30
-        if childs.count() >= 3:
-            return 20
-        return 40
-
-    chequera.fget.short_description = 'Chequera a pagar'
 
     class Meta:
         verbose_name = 'Tutor'
@@ -33,3 +20,6 @@ class Tutor(models.Model):
 
     def __str__(self):
         return self.name_tutor
+
+    def chequera(self):
+        return 0

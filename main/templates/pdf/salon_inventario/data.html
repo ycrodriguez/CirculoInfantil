@@ -7,7 +7,7 @@
 
 
 {% block page_header %}
-    <h1 style="text-align: center">Inventario segun salon</h1>
+    <h1 style="text-align: center">Inventario segun salón</h1>
 {% endblock %}
 
 
@@ -15,10 +15,10 @@
     <table border="1">
         <thead>
         <tr>
-            <td colspan="2">{{ room }}</td>
+            <td colspan="2">Salón número {{ room.room_number }}</td>
         </tr>
         <tr>
-            <td>Nombre del articulo</td>
+            <td>Nombre del artículo</td>
             <td>Valor</td>
         </tr>
         </thead>
@@ -32,7 +32,7 @@
             {% endfor %}
         {% else %}
             <tr>
-                <td colspan="2"> No existen articulos en este salon</td>
+                <td colspan="2"> No existen artículos en este salón</td>
             </tr>
         {% endif %}
         </tbody>

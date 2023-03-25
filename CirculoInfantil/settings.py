@@ -27,36 +27,16 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 JAZZMIN_SETTINGS = {
-    # title of the window (Will default to current_admin_site.site_title if absent or None)
     "site_title": "Círculo Infantil Hermanos Vena",
-
-    # Title on the login screen (19 chars max) (defaults to current_admin_site.site_header if absent or None)
     "site_header": "Círculo Infantil Hermanos Vena",
-
-    # Title on the brand (19 chars max) (defaults to current_admin_site.site_header if absent or None)
     "site_brand": "Círculo Infantil Hermanos Vena",
-
-    # Logo to use for your site, must be present in static files, used for brand on top left
-    "site_logo": None,
-
-    # Logo to use for your site, must be present in static files, used for login form logo (defaults to site_logo)
+    "site_logo": 'logo.png',
     "login_logo": None,
-
-    # Logo to use for login form in dark themes (defaults to login_logo)
     "login_logo_dark": None,
-
-    # CSS classes that are applied to the logo above
     "site_logo_classes": "img-circle",
-
-    # Relative path to a favicon for your site, will default to site_logo if absent (ideally 32x32 px)
-    "site_icon": None,
-
-    # Welcome text on the login screen
-    "welcome_sign": "Bienvenido",
-
-    # Copyright on the footer
-    "copyright": "",
-
+    "site_icon": 'logo.png',
+    "welcome_sign": "Bienvenido al Círculo Infantil Hermanos Vena ",
+    "copyright": "Yohan",
     # GUI personalisada
     # "show_ui_builder": True
 }
@@ -120,7 +100,7 @@ ROOT_URLCONF = 'CirculoInfantil.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [join(BASE_DIR, 'templates')],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -178,8 +158,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = join(BASE_DIR, 'root', 'static')
+
+STATICFILES_DIRS = [
+    join(BASE_DIR / 'static'),
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Sessions
+# https://docs.djangoproject.com/en/4.1/topics/http/sessions/
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_COOKIE_AGE = 3600
+SESSION_SAVE_EVERY_REQUEST = True
