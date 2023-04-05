@@ -2,11 +2,16 @@ from django.db import models
 
 
 class Attendance(models.Model):
-    room = models.ForeignKey('main.Room', on_delete=models.CASCADE)
-    child = models.ForeignKey('main.Child', on_delete=models.CASCADE)
-    attendance_date = models.DateTimeField()
-    type = models.CharField(max_length=255, choices={('1', 'presente'), ('2', 'tardanza'), ('3', 'ausencia')})
+    child = models.ForeignKey('main.Child', on_delete=models.CASCADE, verbose_name='Niño')
+    attendance_date = models.DateTimeField(verbose_name='Día de asistencia ')
+    type = models.CharField(max_length=255, default='presente',
+                            choices={('presente', 'presente'), ('tardanza', 'tardanza'), ('ausencia', 'ausencia')},
+                            verbose_name='Típo')
     date_update = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        verbose_name = 'Asistencia'
+        verbose_name_plural = 'Asistencias'
+
     def __str__(self):
-        return '{} {}'.format(self.room.room_number, self.child.name_child)
+        return 'Asistencia de {}'.format(self.child.name_child)

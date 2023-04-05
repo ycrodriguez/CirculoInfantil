@@ -37,8 +37,6 @@ JAZZMIN_SETTINGS = {
     "site_icon": 'logo.png',
     "welcome_sign": "Bienvenido al Círculo Infantil Hermanos Vena ",
     "copyright": "Yohan",
-    # GUI personalisada
-    # "show_ui_builder": True
 }
 
 JAZZMIN_UI_TWEAKS = {
@@ -158,7 +156,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = join(BASE_DIR, 'root', 'static')
 
 STATICFILES_DIRS = [
     join(BASE_DIR / 'static'),

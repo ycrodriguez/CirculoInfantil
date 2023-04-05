@@ -7,3 +7,5 @@ from main.admin.family_pickup import FamilyPickup
 from main.admin.intolerance import Intolerance
 from main.admin.room import Room
 from main.admin.tutor import Tutor
+from main.models import Attendance
+from .atendence import AttendanceAdmin

@@ -30,7 +30,7 @@ class ChildForm(ModelForm):
         skinColor_has_number = re.findall('[0-9]+', skinColor)
 
         if room and num_child >= 30:
-            self._errors['room'] = ErrorList(['Solo se permiten letras'])
+            self._errors['room'] = ErrorList(['No se permiten mas de 30 niños en un salón'])
         if eyesColor_has_number:
             self.errors['eyes_color'] = ErrorList(['Solo se permiten letras'])
         if hairColor_has_number:

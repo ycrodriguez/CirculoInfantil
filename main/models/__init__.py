@@ -7,3 +7,4 @@ from main.models.economy import Economy
 from main.models.expedient import Expedient
 from main.models.family_pickup import FamilyPickup
 from main.models.intolerance import Intolerance
+from main.models.attendance import Attendance

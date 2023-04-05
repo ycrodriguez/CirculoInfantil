@@ -1,0 +1,57 @@
+{% extends 'custom/custom_form.html' %}
+{% load static %}
+
+{% block title_page %}
+    <h1>Control de Asistencia</h1>
+{% endblock %}
+
+{% block title_card %}
+    <h4 style="text-align: center">Salón número {{ num_room.room_number }}</h4>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                {{ fecha.as_p }}
+            </div>
+            <div class="col-4">
+
+            </div>
+        </div>
+    </div>
+    <br>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Edad</th>
+            <th scope="col">Sexo</th>
+            <th scope="col">Año</th>
+            <th scope="col">Típo de Asistencia</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for f in forms %}
+            <tr>
+                <td>{{ f.child.name_child }}</td>
+                <td>{{ f.child.age }}</td>
+                <td>{{ f.child.sexo }}</td>
+                <td>{{ f.child.year }}</td>
+                <td>
+                    {{ f.form.type }}
+                </td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block actions %}
+    <input style="width: 100%" type="submit" class="btn btn-outline-success" value="Guardar"/>
+{% endblock %}
+
+{% block extra_js %}
+
+{% endblock %}
