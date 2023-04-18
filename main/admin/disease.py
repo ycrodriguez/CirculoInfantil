@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.urls import path
+from django.utils import timezone
 from django.utils.html import format_html
 from django.views.generic import DetailView
 
@@ -35,6 +36,7 @@ class DiseaseAdmin(admin.ModelAdmin):
                              '{}'.format("PDF Reporte por enfermedades"),
                              {
                                  'request': request,
+                                 'data': timezone.now(),
                                  'childs': Child.objects.filter(diseases__pk=enfermedad),
                                  'enferm': Disease.objects.get(pk=enfermedad),
                              }

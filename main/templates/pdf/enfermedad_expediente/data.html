@@ -7,6 +7,21 @@
 
 
 {% block page_header %}
+    <table>
+        <tbody>
+        <tr>
+            <td class="img">
+                <img src="D:\Informatica\Django\Proyect Django\My Personal Proyect\CirculoInfantil\static\logo.png"
+                     alt="Logo">
+                <h2>Círculo Infantil Hermanos Vena</h2>
+                <h3>Municipio: San Juan y Martínez</h3>
+            </td>
+            <td class="name">
+                <p>Fecha: {{ data }}</p>
+            </td>
+        </tr>
+        </tbody>
+    </table>
     <h1 style="text-align: center">Reporte segun enfermedad</h1>
 {% endblock %}
 
@@ -23,7 +38,7 @@
             <td>Peso</td>
             <td>Altura</td>
             <td>Sexo</td>
-            <td>NO. Salon</td>
+            <td>No. Salón</td>
         </tr>
         </thead>
         <tbody>
@@ -47,6 +62,7 @@
 
         </tbody>
     </table>
+    <p style="text-align: right">Firma del Director________________________________</p>
     <style type="text/css">
         thead tr td {
             font-weight: bold;
@@ -55,6 +71,16 @@
         td {
             text-align: center;
             padding: 3px;
+        }
+
+        .img {
+            width: 150px;
+            height: 150px;
+            text-align: left;
+        }
+
+        .name {
+            text-align: right;
         }
     </style>
 {% endblock %}

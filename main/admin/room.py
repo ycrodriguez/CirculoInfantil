@@ -14,7 +14,6 @@ from CirculoInfantil.functions import exportPDF
 class RoomAdmin(admin.ModelAdmin):
     search_fields = ['code_room', 'room_number']
     list_display = ['code_room', 'room_number', 'inventario', 'registro', 'asistencia']
-    change_list_template = 'admin/change_list_template.html'
 
     def inventario(self, obj: None):
         if obj:
@@ -53,6 +52,7 @@ class RoomAdmin(admin.ModelAdmin):
                              '{}'.format('PDF Inventario'),
                              {
                                  'request': request,
+                                 'data': timezone.now(),
                                  'articulos': Article.objects.filter(room__pk=room),
                                  'room': Room.objects.get(pk=room)
                              }
@@ -65,6 +65,7 @@ class RoomAdmin(admin.ModelAdmin):
                              '{}'.format('PDF Inventario'),
                              {
                                  'request': request,
+                                 'data': timezone.now(),
                                  'childs': Child.objects.filter(room__pk=room),
                                  'room': Room.objects.get(pk=room)
                              }

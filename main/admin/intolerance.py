@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.urls import path
+from django.utils import timezone
 from django.utils.html import format_html
 from django.views.generic import DetailView
 
@@ -35,6 +36,7 @@ class IntoleranceAdmin(admin.ModelAdmin):
                              '{}'.format("PDF Reporte por intolerancias"),
                              {
                                  'request': request,
+                                 'data': timezone.now(),
                                  'childs': Child.objects.filter(intolerance__pk=intolerancia),
                                  'intole': Intolerance.objects.get(pk=intolerancia),
                              }

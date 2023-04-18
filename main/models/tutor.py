@@ -30,7 +30,7 @@ class Tutor(models.Model):
         chequera = 0
         fecha = timezone.now().date()
         calendario = calendar.Calendar().itermonthdays4(fecha.year, fecha.month)
-        childs_tutor = Child.objects.filter(tutor__ci_tutor=self.ci_tutor)
+        childs_tutor = Child.objects.filter(tutor__pk=self.pk)
         if childs_tutor.count() == 0:
             return chequera
         if childs_tutor.count() == 1:
@@ -42,11 +42,13 @@ class Tutor(models.Model):
             return chequera
         for i in childs_tutor:
             for j in calendario:
-                if j[1] == fecha.month and j[2] <= fecha.day and j[3] != 5 and j[3] != 6:
-                    ausencia = Attendance.objects.filter(child=i, type='ausencia', attendance_date__year=j[0],
+                if j[1] == fecha.month and j[2] <= fecha.day and (j[3] != 5 or j[3] != 6):
+                    print(i)
+                    ausencia = Attendance.objects.filter(child=i, attendance_date__year=j[0],
                                                          attendance_date__month=j[1],
                                                          attendance_date__day=j[2]).order_by(
                         '-attendance_date').first()
                     if ausencia:
-                        chequera -= 1.67
+                        if ausencia.type == 'certificado' or ausencia.type == 'vacaciones':
+                            chequera -= 1.67
         return chequera

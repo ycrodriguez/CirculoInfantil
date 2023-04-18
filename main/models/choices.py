@@ -1,4 +1,4 @@
 SEXO_CHOICES = (
-    ('female', 'Femenino'),
-    ('male', 'Masculino'),
+    ('Femenino', 'Femenino'),
+    ('Masculino', 'Masculino'),
 )

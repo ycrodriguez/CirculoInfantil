@@ -3,7 +3,7 @@ from django.db import models
 
 # Modelo Enfermrdad
 class Disease(models.Model):
-    code_disease = models.CharField(max_length=8, unique=True)
+    code_disease = models.CharField(verbose_name='Código de Enfermedades', max_length=8, unique=True)
     name_disease = models.CharField('Nombre de la enfermedad', max_length=16)
     description_disease = models.TextField('Descripción')
 
