@@ -10,7 +10,7 @@ cd venv
 
 cd Scripts
 
-activate
+source activate
 
 cd ../../
 
